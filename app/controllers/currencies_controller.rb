@@ -7,6 +7,10 @@ class CurrenciesController < ApplicationController
 
     @array_of_symbols = @symbols_hash.keys
 
+    # params are 
+    #Parameters: {"from_currency"=>"ARS"}
+   # @from_symbol = params.fetch("from_currency")
+
     render({ :template => "currency_templates/step_one.html.erb" })
   
   end
@@ -16,6 +20,7 @@ class CurrenciesController < ApplicationController
     @symbols_hash = @parsed_data.fetch("symbols")
 
     @array_of_symbols = @symbols_hash.keys
+    @from_symbol = params.fetch("from_currency")
     render({ :template => "currency_templates/step_two.html.erb" })
   end
 
